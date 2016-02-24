@@ -50,13 +50,13 @@ gulp.task('styles',function(){
 	return gulp.src('sass/**/*.scss')
 		.pipe(sass().on('error',sass.logError))
 		.pipe(autoprefixer())
-		.pipe(gulp.dest('css/'))
+		.pipe(gulp.dest('app/css/'))
 		.pipe(reload({stream:true}))
 		.pipe(rename({suffix:'.min'}))
 		.pipe(sourcemaps.init())
 		.pipe(cssnano())
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest('css/'))
+		.pipe(gulp.dest('app/css/'))
 })
 
 gulp.task('default',['styles'],function(){
@@ -66,7 +66,7 @@ gulp.task('default',['styles'],function(){
 		}
 	})
 	gulp.watch('sass/**/*.scss',["styles"]);
-	gulp.watch('*.html').on('change',reload);
+	gulp.watch('app/*.html').on('change',reload);
 })
 
 
