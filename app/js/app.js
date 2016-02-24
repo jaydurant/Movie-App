@@ -160,13 +160,13 @@ function FeatureArticle(props) {
 exports.default = FeatureArticle;
 
 },{"react":483}],5:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -175,20 +175,51 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function FeatureBooks(props) {
 
 	return _react2.default.createElement(
-		'div',
-		null,
+		"div",
+		{ className: "bookList" },
 		_react2.default.createElement(
-			'ul',
+			"ul",
 			null,
 			_react2.default.createElement(
-				'li',
+				"li",
 				null,
-				'Book 1'
-			),
-			_react2.default.createElement(
-				'li',
-				null,
-				'Book 2'
+				_react2.default.createElement(
+					"div",
+					{ className: "bookList-item" },
+					_react2.default.createElement("img", { className: "bookList-image", src: "http://placehold.it/100x150" }),
+					_react2.default.createElement(
+						"div",
+						{ className: "bookList-description" },
+						_react2.default.createElement(
+							"div",
+							{ className: "bookList-itemText" },
+							_react2.default.createElement(
+								"h3",
+								null,
+								"El Pooch"
+							),
+							_react2.default.createElement(
+								"p",
+								null,
+								"By Alex Nelson"
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "bookList-itemOptions" },
+							_react2.default.createElement(
+								"button",
+								null,
+								"Free Sample"
+							),
+							_react2.default.createElement(
+								"button",
+								null,
+								"Review"
+							)
+						)
+					)
+				)
 			)
 		)
 	);
@@ -212,7 +243,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Navigation(props) {
 
 	return _React2.default.createElement(
-		"nav",
+		"header",
 		{ className: "menu" },
 		_React2.default.createElement(
 			"div",
@@ -225,7 +256,7 @@ function Navigation(props) {
 			)
 		),
 		_React2.default.createElement(
-			"div",
+			"nav",
 			{ className: "menuList" },
 			_React2.default.createElement(
 				"ul",
@@ -271,7 +302,32 @@ function ReturnContent(props) {
 	return _react2.default.createElement(
 		'div',
 		null,
-		'return content'
+		_react2.default.createElement(
+			'h3',
+			null,
+			'Welcome Back'
+		),
+		_react2.default.createElement(
+			'p',
+			null,
+			'It\'s been a while.',
+			_react2.default.createElement('br', null),
+			'Read any new books lately?'
+		),
+		_react2.default.createElement(
+			'div',
+			{ className: 'buttonGroup' },
+			_react2.default.createElement(
+				'button',
+				{ className: 'button--no' },
+				'NO'
+			),
+			_react2.default.createElement(
+				'button',
+				{ className: 'button--yes' },
+				'YES'
+			)
+		)
 	);
 }
 
