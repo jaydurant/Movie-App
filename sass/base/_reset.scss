@@ -1,12 +1,11 @@
 html {
-  font-size:62.5%;
+  font-size:100%;
 }
 
 body {
   margin:0;
   padding:0;
   width:100%;
-  @include rem("font-size", $regularSize);
   font-family:$helvetica;
   line-height:1.3;
 }
