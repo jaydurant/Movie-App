@@ -1,6 +1,3 @@
-* {
-  border: 1px solid red; }
-
 html {
   font-size: 16px; }
 
@@ -42,3 +39,23 @@ fieldset {
 
 button {
   cursor: pointer; }
+
+.menu {
+  position: relative;
+  z-index: 3;
+  background-color: pink;
+  top: 0; }
+
+.menu--header {
+  z-index: 3;
+  position: relative;
+  background-color: pink; }
+
+.menuList {
+  position: absolute;
+  z-index: 2;
+  top: -35px;
+  width: 100%; }
+
+.menuList--item {
+  background-color: grey; }

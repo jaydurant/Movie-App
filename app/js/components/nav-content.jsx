@@ -10,9 +10,9 @@ function Navigation(props){
 			</div>
 			<div className="menuList">
 				<ul>
-					<li className="menusList--item">Option 1</li>
-					<li className="menusList--item">Option 2</li>
-					<li className="menusList--item">Option 3</li>	
+					<li className="menuList--item">Option 1</li>
+					<li className="menuList--item">Option 2</li>
+					<li className="menuList--item">Option 3</li>	
 				</ul>
 				<div className="menu--dimmer"></div>
 			</div>	

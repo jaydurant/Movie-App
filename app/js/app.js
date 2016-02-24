@@ -44,9 +44,17 @@ function AppBody(props) {
 	return _react2.default.createElement(
 		'div',
 		null,
-		2,
-		props.children[0],
-		props.children[1]
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_returnContent2.default, null),
+			props.children[0]
+		),
+		_react2.default.createElement(
+			'div',
+			null,
+			props.children[1]
+		)
 	);
 }
 
@@ -224,17 +232,17 @@ function Navigation(props) {
 				null,
 				_React2.default.createElement(
 					"li",
-					{ className: "menusList--item" },
+					{ className: "menuList--item" },
 					"Option 1"
 				),
 				_React2.default.createElement(
 					"li",
-					{ className: "menusList--item" },
+					{ className: "menuList--item" },
 					"Option 2"
 				),
 				_React2.default.createElement(
 					"li",
-					{ className: "menusList--item" },
+					{ className: "menuList--item" },
 					"Option 3"
 				)
 			),

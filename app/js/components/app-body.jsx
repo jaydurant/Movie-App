@@ -4,10 +4,14 @@ import ReturnContent from './return-content';
 function AppBody(props){
 	
 	return(
-		<div>	
-			{2}
-			{props.children[0]}
-			{props.children[1]}
+		<div>
+			<div>	
+				<ReturnContent />
+				{props.children[0]}
+			</div>
+			<div>
+				{props.children[1]}
+			</div>
 		</div>
 	);
 }
