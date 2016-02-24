@@ -18,7 +18,7 @@ var reload = browserSync.reload;
 
 
 var b = browserify({
-		entries: './develop/app.jsx',
+		entries: './app/app.jsx',
 		transform: [babelify],
 		plugin: [watchify],
 		extensions:['.jsx'],
@@ -36,7 +36,7 @@ function bundle(){
 		   .pipe(buffer())
 		   .pipe(sourcemaps.init({loadMaps:true}))
 		   .pipe(sourcemaps.write('./'))
-		   .pipe(gulp.dest('js/'))
+		   .pipe(gulp.dest('app/js/'))
 		   .pipe(browserSync.stream());
 }
 
@@ -61,7 +61,9 @@ gulp.task('styles',function(){
 
 gulp.task('default',['styles'],function(){
 	browserSync.init({
-		server:'./'
+		server:{
+			baseDir: ["app","assets"]
+		}
 	})
 	gulp.watch('sass/**/*.scss',["styles"]);
 	gulp.watch('*.html').on('change',reload);
