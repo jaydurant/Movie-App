@@ -18,7 +18,7 @@ var reload = browserSync.reload;
 
 
 var b = browserify({
-		entries: './app/app.jsx',
+		entries: './app/js/app.jsx',
 		transform: [babelify],
 		plugin: [watchify],
 		extensions:['.jsx'],
