@@ -1,12 +1,15 @@
 import React from 'react';
 import ReturnContent from './return-content';
+import NewBookForm  from './newbook-form';
 
 function AppBody(props){
-	
+	let newVisitor = props.newVisitor ? <ReturnContent onUserClick={props.onReturnVisitorClick} /> : null;
+	let newBookForm = props.addBook ? <NewBookForm car='hey' />: false;
+
 	return(
 		<div>
 			<div>	
-				<ReturnContent />
+				{newVisitor || newBookForm}
 				{props.children[0]}
 			</div>
 			<div>

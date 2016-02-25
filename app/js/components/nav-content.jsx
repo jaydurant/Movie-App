@@ -6,7 +6,7 @@ function Navigation(props){
 		<header className="menu">
 			<div className="menu--header">
 				<img className="menu--image" src="./ic_close_24px.svg" width="24" height="24" />
-				<a href="#menuExpand">My Books</a>
+				<h1>My Books</h1>
 			</div>
 			<nav className="menuList">
 				<ul>

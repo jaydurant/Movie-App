@@ -6,35 +6,39 @@ import {EventEmitter} from 'events';
 
 const CHANGE_EVENT = 'change';
 
-const _store = {
-	bookList : [],
-	articlesList:[]
+let _store = {
+	books : [],
+	articles:[]
 }
 
 function addBookList(newBook){
-	_store.bookList.unshift(newBook);
+	_store.books.unshift(newBook);
 }
 
 function addArticlesList(newArticle){
-	_store.articlesList.unshift(newArticle);
+	_store.articles.unshift(newArticle);
 }
 
-const bookAppStore = objectAssign({},EventEmiiter.prototype,{
+function setStoreData(data){
+	_store = data;
+}
+
+const bookAppStore = objectAssign({},EventEmitter.prototype,{
 	
 	addChangeListener(callback){
-		this.on(CHANGE_EVENT,cb);
+		this.on(CHANGE_EVENT,callback);
 	},
 
 	removeChangeListener(callback){
-		this.removeListener(CHANGE_EVENT,cb);
+		this.removeListener(CHANGE_EVENT,callback);
 	},
 
 	getBooks(){
-		return _store.bookList;
+		return _store.books;
 	},
 
 	getArticles(){
-		return _store.articlesList;
+		return _store.articles;
 	}
 
 });
@@ -50,6 +54,10 @@ appDispatcher.register((payload) => {
 			break;
 		case appConstants.ADD_ARTICLE:
 			addArticlesList(action.data);
+			bookAppStore.emit(CHANGE_EVENT);
+			break;
+		case appConstants.GET_DATA:
+			setStoreData(action.data);
 			bookAppStore.emit(CHANGE_EVENT);
 			break;
 	}

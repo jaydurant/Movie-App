@@ -14,32 +14,36 @@ class AppContainer extends React.Component {
 
 		this.state = {
 			booksList: appStore.getBooks(),
-			articlesList: appStore.getArticles()
+			articlesList: appStore.getArticles(),
+			addBook:false,
+			returnVisitor: true
 		}
 	}
 
 	componentDidMount(){
-		appStore.addChangeListener(this._onChange);
+		appStore.addChangeListener(this._onChange.bind(this));
+		appActions.setContent();
 	}
 
 	componentWillUnmount(){
-		appStore.removeChangeListener(this._onChange)
-	}
-
-	addNewBook(item){
-		appActions.addBook(item);
-	}
-
-	addNewArticle(item){
-		appActions.addArticle(item);
+		appStore.removeChangeListener(this._onChange.bind(this));
 	}
 
 	_onChange(){
 		this.setState({
 			booksList: appStore.getBooks(),
 			articlesList: appStore.getArticles()
-		})
+		});
 	}
+
+	onReturnVisitorClick(event){
+		if(event.target.textContent === "YES"){
+			this.setState({addBook:true, returnVisitor:false});	
+		}
+		else{
+			this.setState({returnVisitor:false});
+		}
+	}	
 
 
 	render () {
@@ -47,9 +51,9 @@ class AppContainer extends React.Component {
 		return(
 			<div>
 				<Navigation />
-				<AppBody>
-					<FeatureBooks />
-					<FeatureArticle />
+				<AppBody addBook={this.state.addBook}newVisitor={this.state.returnVisitor} onReturnVisitorClick={this.onReturnVisitorClick.bind(this)} >
+					<FeatureBooks books={this.state.booksList} />
+					<FeatureArticle articles={this.state.articlesList} />
 				</ AppBody>
 			</div>
 			);
