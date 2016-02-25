@@ -4,7 +4,7 @@ import NewBookForm  from './newbook-form';
 
 function AppBody(props){
 	let newVisitor = props.newVisitor ? <ReturnContent onUserClick={props.onReturnVisitorClick} /> : null;
-	let newBookForm = props.addBook ? <NewBookForm car='hey' />: false;
+	let newBookForm = props.addBook ? <NewBookForm clicks='hey' />: false;
 
 	return(
 		<div>

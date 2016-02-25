@@ -1,6 +1,7 @@
 import appDispatcher from '../dispatcher/appdispatcher';
 import appConstants from '../constants/appconstants';
 import objectAssign from 'react/lib/Object.assign';
+import getMenu from '../utils/getmenu';
 import {EventEmitter} from 'events';
 
 
@@ -20,7 +21,10 @@ function addArticlesList(newArticle){
 }
 
 function setStoreData(data){
+	debugger;
 	_store = data;
+	_store.menu = getMenu(data.books,data.articles,/title/i);
+	
 }
 
 const bookAppStore = objectAssign({},EventEmitter.prototype,{
@@ -39,6 +43,9 @@ const bookAppStore = objectAssign({},EventEmitter.prototype,{
 
 	getArticles(){
 		return _store.articles;
+	},
+	getMenu(){
+		return _store.menu;
 	}
 
 });

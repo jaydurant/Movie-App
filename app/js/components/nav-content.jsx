@@ -1,6 +1,8 @@
 import React from 'React';
+import NavListItems from './nav-listitems';
 
 function Navigation(props){
+	let navItems = props.linkNames.map((val,i) => <NavListItems key={i} linkText={val}/>);
 
 	return (
 		<header className="menu">
@@ -10,9 +12,7 @@ function Navigation(props){
 			</div>
 			<nav className="menuList">
 				<ul>
-					<li className="menuList--item">Option 1</li>
-					<li className="menuList--item">Option 2</li>
-					<li className="menuList--item">Option 3</li>	
+					{navItems}
 				</ul>
 				<div className="menu--dimmer"></div>
 			</nav>	

@@ -1,22 +1,14 @@
 import React from 'react';
+import ArticlesListItem from './articles-listitem';
 
 function FeatureArticle(props){
+	const articlesList = props.articles.map((val,i) => <ArticlesListItem key={i} imgSrc={val.articleImage} articleTitle={val.articleTitle} articleCategory={val.articleCategory} articleDesc={val.articleDescription} />);
 
 	return(
-		<section>
-			<figure>
-				<img src='http://placehold.it/350x100' width='350' height='100' />
-				<figcaption>Top 10 Australia Beaches</figcaption>
-			</figure>
-			<div>
-				<h4>Number 10</h4>
-				<p>Whitehaven Beach<br/>Whitsunday Island, Whitesunday Islands</p>
-				<div>
-					<button>Share</button>
-					<button>Explore</button>
-				</div>
-			</div>
-			
+		<section className='articlesList'>
+			<ul>
+				{articlesList}
+			</ul>
 		</section>
 	);
 

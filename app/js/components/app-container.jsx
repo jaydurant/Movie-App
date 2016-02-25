@@ -16,7 +16,8 @@ class AppContainer extends React.Component {
 			booksList: appStore.getBooks(),
 			articlesList: appStore.getArticles(),
 			addBook:false,
-			returnVisitor: true
+			returnVisitor: true,
+			menu:[]
 		}
 	}
 
@@ -32,7 +33,8 @@ class AppContainer extends React.Component {
 	_onChange(){
 		this.setState({
 			booksList: appStore.getBooks(),
-			articlesList: appStore.getArticles()
+			articlesList: appStore.getArticles(),
+			menu: appStore.getMenu()
 		});
 	}
 
@@ -50,8 +52,8 @@ class AppContainer extends React.Component {
 
 		return(
 			<div>
-				<Navigation />
-				<AppBody addBook={this.state.addBook}newVisitor={this.state.returnVisitor} onReturnVisitorClick={this.onReturnVisitorClick.bind(this)} >
+				<Navigation linkNames={this.state.menu} />
+				<AppBody addBook={this.state.addBook} newVisitor={this.state.returnVisitor} onReturnVisitorClick={this.onReturnVisitorClick.bind(this)} >
 					<FeatureBooks books={this.state.booksList} />
 					<FeatureArticle articles={this.state.articlesList} />
 				</ AppBody>
