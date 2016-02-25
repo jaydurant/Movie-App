@@ -1,5 +1,6 @@
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -59,3 +60,23 @@ button {
 
 .menuList--item {
   background-color: grey; }
+
+.bookList-image {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  max-width: 20%;
+  height: auto; }
+
+.bookList-description {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  padding-left: 1rem; }
+
+.bookList-itemOptions {
+  border-top: 1px solid grey; }

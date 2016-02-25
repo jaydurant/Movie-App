@@ -1,0 +1,16 @@
+
+
+.bookList-image{
+	@include inline-block();
+	max-width:20%;
+	height:auto;
+}
+
+.bookList-description{
+	@include inline-block();
+	padding-left: 1rem;
+}
+
+.bookList-itemOptions{
+	border-top: 1px solid grey;
+}
