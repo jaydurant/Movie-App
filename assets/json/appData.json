@@ -6,7 +6,7 @@
 								"first" : "Alex",
 								"last" : "Nelson"
 							},
-				"bookImage" : "./assets/images/elpooch.jpg",
+				"bookImage" : "./images/elpooch.png",
 				"bookDescription": "Based on the runaway web phenomenon (www.dogshaming.com), Dog Shaming features the most hilarious, most shameful, and never-before-seen doggie misdeeds. Our dogs are our best friends. They are always happy to see us. They comfort us in our times of need. They also eat our shoes, stain our carpets, and embarrass us in front of our guests. Dog owners everywhere have found their outlet in Dog Shaming, where they can confess their dogs' biggest (and often grossest!) sins, which turn out to be recognizably universal—complete with snapshots of ridiculously cute but shamed pups who don't seem capable of humping humans, pooping on pillows, or snagging steak straight from a grill. So share in the shaming and laugh through your frustration as Dog Shaming reminds us that unconditional love goes both ways."
 			},
 			{
@@ -15,15 +15,15 @@
 								"first" : "Scott",
 								"last" : "Masterson"
 							},
-				"bookImage" : "./assets/images/theflight.jpg",
+				"bookImage" : "./images/theflight.png",
 				"bookDescription": "Devil-may-care navy pilot Pete Mitchell (Tom Cruise) is sent to Miramar Naval Air Station for advanced training. Here he vies with Tom Kasansky (Val Kilmer) for the coveted 'Top Gun' award. When not so occupied, Mitchell carries on a romance with civilian consultant Charlotte Blackwood (Kelly McGillis). Shaken up by the death of a friend, Mitchell loses the Top Gun… "
 
 			}
 	],
 	"articles":[
 				{
-					"articleTitle" : "Top 10 Australian beaches",
-					"articleImage" : "./assets/images/top10ausbeaches.jpg",
+					"articleTitle" : "Top 10 Australian Beaches",
+					"articleImage" : "./images/top10ausbeaches.png",
 					"articleCategory" : "Number 10",
 					"articleDescription" : {
 												"line1" : "Whitehaven Beach",
