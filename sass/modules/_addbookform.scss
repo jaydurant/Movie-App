@@ -1,0 +1,19 @@
+.form{
+	@include rem("padding-right",150);
+	text-align:right;
+
+
+	input,textarea{
+		@include roundedCorners(10);
+		width:40%;
+	}
+}
+
+.label-description{
+	vertical-align:top;
+}
+
+
+.form-label{
+	@include rem("font-size",20);
+}

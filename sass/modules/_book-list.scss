@@ -1,16 +1,52 @@
 
 
-.bookList-image{
+.bookList-image-container{
 	@include inline-block();
-	max-width:20%;
+	width:30%;
+	height:auto;
+
+	img{
+		display:block;
+	}
+}
+
+.bookList-item{
 	height:auto;
 }
 
+.bookList-itemText{
+	@include rem("padding",18,0,30,15);
+	h3{
+		font-weight:600;
+	}
+	p{
+		@include rem("font-size",13);
+		color:grey;
+		font-weight:100;
+
+	}
+}
+
+.bookList-image{
+	width:100%;
+	height:auto;
+}
+
+
+
 .bookList-description{
 	@include inline-block();
-	padding-left: 1rem;
+	width:70%;
 }
 
 .bookList-itemOptions{
+	@include rem("padding",20,0,0,15);
 	border-top: 1px solid grey;
+
+	button{
+		@include rem("font-size",15);
+	}
+
 }
+
+

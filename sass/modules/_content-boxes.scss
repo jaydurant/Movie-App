@@ -1,0 +1,32 @@
+.content-box{
+	@include roundedCorners(2);
+	@include rem("margin",4);
+	@include margin-auto();
+	background-color:$contentColor;
+	width:99%;
+	
+}
+
+.button-group{
+	border-top: .1rem #eaeaea solid;
+	@include rem("padding",10,25);
+}
+
+.button{
+	background:none;
+	border:none;
+	font-weight:600;
+	@include rem("font-size",15);
+
+}
+
+.button-black{
+	@extend .button;
+	color:black;
+}
+
+.button-gold{
+	@extend .button;
+	@include rem("margin-left",4);
+	color:$linkGold;
+}

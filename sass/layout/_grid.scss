@@ -1,0 +1,56 @@
+.container{
+	height:100%;
+}
+
+@include breakpoint($sassySmall){
+	.half-width-s{
+		@include inline-block();
+		width: $full-width / 2;
+	}
+	
+
+.three-quarters-width-s{
+	@include inline-block();
+	width: $full-width / 1.3;
+	}
+
+.full-width-s{
+	@include inline-block();
+	width: $full-width;
+	}	
+}
+
+@include min-breakpoint($sassySmall){
+	.half-width-m{
+		@include inline-block();
+		width: $full-width / 2;
+	}
+
+	.three-quarters-width-m{
+		@include inline-block();
+		width: $full-width / 1.3;
+	}
+
+	.full-width-m{
+		@include inline-block();
+		width: $full-width;
+	}
+}
+
+@include min-breakpoint($sassyMed){
+	.half-width-l{
+		@include inline-block();
+		width: $full-width / 2;
+	}
+
+	.three-quarters-width-l{
+		@include inline-block();
+		width: $full-width / 1.3;
+	}
+
+	.full-width-l{
+		@include inline-block();
+		width: $full-width;
+	}
+	
+}

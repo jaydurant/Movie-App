@@ -1,3 +1,9 @@
+@include min-breakpoint($sassySmall){
+  html,body,.app-container,.container{
+    height:100%;
+  }
+}
+
 
 
 html {
@@ -9,7 +15,7 @@ body {
   margin:0;
   padding:0;
   width:100%;
-  font-family:$helvetica;
+  font-family:$roboto;
   line-height:1.3;
 }
 
@@ -35,7 +41,8 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   padding:0;
-  @include rem("margin", 0, 0, 10, 0);
+  margin:0;
+  @include rem("margin", 0, 0, 0, 0);
   font-weight: normal;
 }
 
@@ -43,6 +50,11 @@ fieldset {
   border:none;
   margin:0;
   padding:0;
+}
+
+figure{
+  margin:0;
+
 }
 
 button {

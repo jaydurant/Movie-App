@@ -1,0 +1,45 @@
+
+.article{
+	h4{
+		@include rem("font-size",13);
+		color:grey;
+		font-weight:100;
+	}
+}
+
+.article-image{
+	width:100%;
+	position:relative;
+	img{
+		width:100%;
+	}
+	.article-imagecaption{
+		@include rem("font-size",20);
+		position: absolute;
+		top:100px;
+		left:22px;
+		color:white;
+	}
+}
+
+.article-description{
+	@include rem("padding",0,0,0,22);
+
+	h4{
+		@include rem("margin",5,0);
+	}
+	p{
+		@include rem("margin",0,0,15,0);
+	}
+
+}
+
+.article-itemOptions{
+	@include rem("padding",20,0,0,15);
+	border-top: 1px solid grey;
+
+	button{
+		@include rem("font-size",15);
+	}
+
+}
