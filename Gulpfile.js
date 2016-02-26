@@ -59,6 +59,13 @@ gulp.task('styles',function(){
 		.pipe(gulp.dest('app/css/'))
 })
 
+gulp.task('uglify',function(){
+	return gulp.src('app/js/app.js')
+		 .pipe(uglify())
+		 .pipe(rename({suffix:'.min'}))
+		 .pipe(gulp.dest('app/js/'))
+})
+
 gulp.task('default',['styles'],function(){
 	browserSync.init({
 		server:{
