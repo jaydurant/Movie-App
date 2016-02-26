@@ -2,7 +2,7 @@ import React from 'React';
 import NavListItems from './nav-listitems';
 
 function Navigation(props){
-
+	//the following variables determine whether a user will see a expanded or closed menu in smaller browsers
 	let navItems = props.linkNames.map((val,i) => <NavListItems key={i} linkText={val}/>);
 	let menuStatus = props.menuOpen ? 'menuList--open':'menuList--closed';
 	

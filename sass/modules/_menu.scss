@@ -86,6 +86,7 @@
 	.menuList-item{
 		@include inline-block();
 		position:static;
+		border-top:none;
 	}
 }
 
