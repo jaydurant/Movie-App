@@ -7,7 +7,7 @@
 
 @include min-breakpoint($sassySmall){
 	.app-body{
-		height:100%;
+		height:auto;
 	}
 }
 
