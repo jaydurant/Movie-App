@@ -1,30 +1,5 @@
 #Bigcommerce
 
-##Purpose of Project
-Create 
-
-## Folder Struture
-.
-+-- _app
-|   +-- js
-|		+-- components
-|		+-- utility functions
-|		+--flux architecture
-|   +-- css
-|	+--index.html
-+-- _assets
-|   +-- images
-|   +-- json
-|	+-- mockup-files
-+-- _sass
-|   +-- base
-|   +-- layout
-|	+-- modules
-|	+-- themes
-|	+-- utils
-+-- _Gulpfile.js
-+-- _package.json
-+-- _JD_README.md
 
 ##Tools used in this project
 - **ES6**: utilized to program with react and demonstrate knowledge of the newer javascript specification
