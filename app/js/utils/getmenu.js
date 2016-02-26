@@ -1,6 +1,6 @@
 
 function getMenu(array1,array2,search){
-	debugger;
+	
 	let menu = [...array1,...array2];
 	menu = menu.map((val)=>{
 		for(let elem in val){

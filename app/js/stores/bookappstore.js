@@ -21,7 +21,6 @@ function addArticlesList(newArticle){
 }
 
 function setStoreData(data){
-	debugger;
 	_store = data;
 	_store.menu = getMenu(data.books,data.articles,/title/i);
 	

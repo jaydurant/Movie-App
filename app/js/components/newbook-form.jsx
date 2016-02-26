@@ -32,7 +32,7 @@ class NewBookForm extends React.Component{
 	}
 
 	onFormSubmission(event){
-		if(duplicateCheck({author:this.state.authorValue,title:this.state.titleValue}, appStore.getBooks() ) ){
+		if(duplicateCheck({author:this.state.authorValue,title:this.state.titleValue}, appStore.getBooks() ) || this.state.authorValue ==="" ){
 			this.setState({warning: true});
 		}
 		else{
@@ -63,10 +63,10 @@ class NewBookForm extends React.Component{
 	render(){
 
 		return(
-			<section>
-				<form name='addBookForm' method='GET'>
+			<section className='content-box'>
+				<form className='form'name='addBookForm' method='GET'>
 					<fieldset>
-						<legend>Then Add the Book!</legend>
+						<legend className='form-label'>Then Add the Book!</legend>
 						<div>
 							{this.state.warning? <Warning text={this.state.warningText} /> : null}
 							<label htmlFor='title'>Title:</label>
@@ -77,11 +77,11 @@ class NewBookForm extends React.Component{
 							<input name='author' type='text' id='author' value={this.state.authorValue} onChange={this.handleChange.bind(this)} required />
 						</div>
 						<div>
-							<label htmlFor='description'>Description:</label>
-							<textarea name='description' type='text' id='description' value={this.state.descriptionValue} onChange={this.handleChange.bind(this)} row='10' cols='25'/>
+							<label className='label-description' htmlFor='description'>Description:</label>
+							<textarea name='description' type='text' id='description' value={this.state.descriptionValue} onChange={this.handleChange.bind(this)} row='30' cols='25'/>
 						</div>
 						<div>
-							<button onClick={this.onFormSubmission.bind(this)}>Add the Book</button>
+							<button className='button-gold' onClick={this.onFormSubmission.bind(this)}>Add the Book</button>
 						</div>
 					</fieldset>
 				</form>

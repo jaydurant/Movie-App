@@ -95,16 +95,16 @@ function AppBody(props) {
 
 	return _react2.default.createElement(
 		'div',
-		null,
+		{ className: 'app-body container' },
 		_react2.default.createElement(
 			'div',
-			null,
+			{ className: 'half-width-m' },
 			newVisitor || newBookForm,
 			props.children[0]
 		),
 		_react2.default.createElement(
 			'div',
-			null,
+			{ className: 'half-width-m' },
 			props.children[1]
 		)
 	);
@@ -170,7 +170,8 @@ var AppContainer = function (_React$Component) {
 			articlesList: _bookappstore2.default.getArticles(),
 			addBook: false,
 			returnVisitor: true,
-			menu: []
+			menu: [],
+			menuOpen: false
 		};
 		return _this;
 	}
@@ -205,13 +206,18 @@ var AppContainer = function (_React$Component) {
 			}
 		}
 	}, {
+		key: 'onMenuToggle',
+		value: function onMenuToggle(event) {
+			this.setState({ menuOpen: !this.state.menuOpen });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 
 			return _react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement(_navContent2.default, { linkNames: this.state.menu }),
+				{ className: 'container' },
+				_react2.default.createElement(_navContent2.default, { linkNames: this.state.menu, toggleMenu: this.onMenuToggle.bind(this), menuOpen: this.state.menuOpen }),
 				_react2.default.createElement(
 					_appBody2.default,
 					{ addBook: this.state.addBook, newVisitor: this.state.returnVisitor, onReturnVisitorClick: this.onReturnVisitorClick.bind(this) },
@@ -243,43 +249,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function ArticlesListItem(props) {
 	return _react2.default.createElement(
 		'li',
-		null,
+		{ className: 'content-box article' },
 		_react2.default.createElement(
-			'figure',
-			null,
-			_react2.default.createElement('img', { src: 'http://placehold.it/350x100', width: '350', height: '100' }),
-			_react2.default.createElement(
-				'figcaption',
-				null,
-				props.articleTitle
-			)
+			'div',
+			{ className: 'article-image' },
+			_react2.default.createElement('img', { src: props.imgSrc, width: '350', height: '250', alt: props.articleTitle })
 		),
 		_react2.default.createElement(
 			'div',
-			null,
+			{ className: 'article-textcaption' },
 			_react2.default.createElement(
-				'h4',
-				null,
-				props.articleCategory
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				props.articleDesc.line1,
-				_react2.default.createElement('br', null),
-				props.articleDesc.line2
+				'div',
+				{ className: 'article-description' },
+				_react2.default.createElement(
+					'h4',
+					null,
+					props.articleCategory
+				),
+				_react2.default.createElement(
+					'p',
+					null,
+					props.articleDesc.line1,
+					_react2.default.createElement('br', null),
+					props.articleDesc.line2
+				)
 			),
 			_react2.default.createElement(
 				'div',
-				null,
+				{ className: 'article-itemOptions' },
 				_react2.default.createElement(
 					'button',
-					null,
+					{ className: 'button-black' },
 					'Share'
 				),
 				_react2.default.createElement(
 					'button',
-					null,
+					{ className: 'button-gold' },
 					'Explore'
 				)
 			)
@@ -305,11 +310,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function BooksListItem(props) {
 	return _react2.default.createElement(
 		'li',
-		null,
+		{ className: 'content-box' },
 		_react2.default.createElement(
 			'div',
 			{ className: 'bookList-item' },
-			_react2.default.createElement('img', { className: 'bookList-image', src: 'http://placehold.it/120x180', width: '120', height: '180' }),
+			_react2.default.createElement(
+				'div',
+				{ className: 'bookList-image-container' },
+				_react2.default.createElement('img', { className: 'bookList-image', src: props.imgSrc, width: '120', height: '180', alt: props.bookTitle })
+			),
 			_react2.default.createElement(
 				'div',
 				{ className: 'bookList-description' },
@@ -333,13 +342,13 @@ function BooksListItem(props) {
 					{ className: 'bookList-itemOptions' },
 					_react2.default.createElement(
 						'button',
-						null,
-						'Free Sample'
+						{ className: 'button-black' },
+						'FREE SAMPLE'
 					),
 					_react2.default.createElement(
 						'button',
-						null,
-						'Review'
+						{ className: 'button-gold' },
+						'REVIEW'
 					)
 				)
 			)
@@ -402,6 +411,7 @@ var _booksListitem2 = _interopRequireDefault(_booksListitem);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FeatureBooks(props) {
+	console.log(props);
 	var booksList = props.books.map(function (val, i) {
 		return _react2.default.createElement(_booksListitem2.default, { key: i, imgSrc: val.bookImage, bookAuthor: val.bookAuthor.first + ' ' + val.bookAuthor.last, bookTitle: val.bookTitle });
 	});
@@ -437,32 +447,34 @@ var _navListitems2 = _interopRequireDefault(_navListitems);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Navigation(props) {
+
 	var navItems = props.linkNames.map(function (val, i) {
 		return _React2.default.createElement(_navListitems2.default, { key: i, linkText: val });
 	});
+	var menuStatus = props.menuOpen ? 'menuList--open' : 'menuList--closed';
 
 	return _React2.default.createElement(
 		'header',
 		{ className: 'menu' },
 		_React2.default.createElement(
 			'div',
-			{ className: 'menu--header' },
-			_React2.default.createElement('img', { className: 'menu--image', src: './ic_close_24px.svg', width: '24', height: '24' }),
+			{ className: 'menu-header' },
+			_React2.default.createElement('img', { className: 'menu-image', src: props.menuOpen ? './ic_close_24px.svg' : './ic_menu_24px.svg', width: '24', height: '24', onClick: props.toggleMenu }),
 			_React2.default.createElement(
 				'h1',
 				null,
-				'My Books'
+				'My books'
 			)
 		),
 		_React2.default.createElement(
 			'nav',
-			{ className: 'menuList' },
+			{ className: 'menuList ' + menuStatus },
 			_React2.default.createElement(
 				'ul',
 				null,
 				navItems
 			),
-			_React2.default.createElement('div', { className: 'menu--dimmer' })
+			_React2.default.createElement('div', { className: 'menu-dimmer' })
 		)
 	);
 }
@@ -485,7 +497,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function NavListItems(props) {
 	return _react2.default.createElement(
 		"li",
-		{ className: "menuList--item" },
+		{ className: "menuList-item" },
 		_react2.default.createElement(
 			"a",
 			{ href: "#" },
@@ -573,7 +585,7 @@ var NewBookForm = function (_React$Component) {
 	}, {
 		key: 'onFormSubmission',
 		value: function onFormSubmission(event) {
-			if ((0, _duplicateCheck2.default)({ author: this.state.authorValue, title: this.state.titleValue }, _bookappstore2.default.getBooks())) {
+			if ((0, _duplicateCheck2.default)({ author: this.state.authorValue, title: this.state.titleValue }, _bookappstore2.default.getBooks()) || this.state.authorValue === "") {
 				this.setState({ warning: true });
 			} else {
 				var _state$authorValue$sp = this.state.authorValue.split(" ");
@@ -609,16 +621,16 @@ var NewBookForm = function (_React$Component) {
 
 			return _react2.default.createElement(
 				'section',
-				null,
+				{ className: 'content-box' },
 				_react2.default.createElement(
 					'form',
-					{ name: 'addBookForm', method: 'GET' },
+					{ className: 'form', name: 'addBookForm', method: 'GET' },
 					_react2.default.createElement(
 						'fieldset',
 						null,
 						_react2.default.createElement(
 							'legend',
-							null,
+							{ className: 'form-label' },
 							'Then Add the Book!'
 						),
 						_react2.default.createElement(
@@ -647,17 +659,17 @@ var NewBookForm = function (_React$Component) {
 							null,
 							_react2.default.createElement(
 								'label',
-								{ htmlFor: 'description' },
+								{ className: 'label-description', htmlFor: 'description' },
 								'Description:'
 							),
-							_react2.default.createElement('textarea', { name: 'description', type: 'text', id: 'description', value: this.state.descriptionValue, onChange: this.handleChange.bind(this), row: '10', cols: '25' })
+							_react2.default.createElement('textarea', { name: 'description', type: 'text', id: 'description', value: this.state.descriptionValue, onChange: this.handleChange.bind(this), row: '30', cols: '25' })
 						),
 						_react2.default.createElement(
 							'div',
 							null,
 							_react2.default.createElement(
 								'button',
-								{ onClick: this.onFormSubmission.bind(this) },
+								{ className: 'button-gold', onClick: this.onFormSubmission.bind(this) },
 								'Add the Book'
 							)
 						)
@@ -689,30 +701,37 @@ function ReturnContent(props) {
 
 	return _react2.default.createElement(
 		'div',
-		null,
+		{ className: 'returning-visitor content-box' },
 		_react2.default.createElement(
-			'h3',
+			'div',
 			null,
-			'Welcome Back'
-		),
-		_react2.default.createElement(
-			'p',
-			null,
-			'It\'s been a while.',
-			_react2.default.createElement('br', null),
-			'Read any new books lately?'
+			_react2.default.createElement(
+				'h3',
+				null,
+				'Welcome Back!'
+			),
+			_react2.default.createElement(
+				'p',
+				null,
+				'It\'s been a while.'
+			),
+			_react2.default.createElement(
+				'p',
+				null,
+				'Read any new books lately?'
+			)
 		),
 		_react2.default.createElement(
 			'div',
-			{ className: 'buttonGroup' },
+			{ className: 'button-group' },
 			_react2.default.createElement(
 				'button',
-				{ className: 'button--no', onClick: props.onUserClick },
+				{ className: 'button-black', onClick: props.onUserClick },
 				'NO'
 			),
 			_react2.default.createElement(
 				'button',
-				{ className: 'button--yes', onClick: props.onUserClick },
+				{ className: 'button-gold', onClick: props.onUserClick },
 				'YES'
 			)
 		)
@@ -821,7 +840,6 @@ function addArticlesList(newArticle) {
 }
 
 function setStoreData(data) {
-	debugger;
 	_store = data;
 	_store.menu = (0, _getmenu2.default)(data.books, data.articles, /title/i);
 }
@@ -898,7 +916,7 @@ Object.defineProperty(exports, "__esModule", {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function getMenu(array1, array2, search) {
-	debugger;
+
 	var menu = [].concat(_toConsumableArray(array1), _toConsumableArray(array2));
 	menu = menu.map(function (val) {
 		for (var elem in val) {

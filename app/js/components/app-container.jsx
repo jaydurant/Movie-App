@@ -17,7 +17,8 @@ class AppContainer extends React.Component {
 			articlesList: appStore.getArticles(),
 			addBook:false,
 			returnVisitor: true,
-			menu:[]
+			menu:[],
+			menuOpen:false
 		}
 	}
 
@@ -45,14 +46,18 @@ class AppContainer extends React.Component {
 		else{
 			this.setState({returnVisitor:false});
 		}
+	}
+
+	onMenuToggle(event){
+		this.setState({menuOpen: !this.state.menuOpen});
 	}	
 
 
 	render () {
 
 		return(
-			<div>
-				<Navigation linkNames={this.state.menu} />
+			<div className="container">
+				<Navigation linkNames={this.state.menu} toggleMenu={this.onMenuToggle.bind(this)} menuOpen={this.state.menuOpen}/>
 				<AppBody addBook={this.state.addBook} newVisitor={this.state.returnVisitor} onReturnVisitorClick={this.onReturnVisitorClick.bind(this)} >
 					<FeatureBooks books={this.state.booksList} />
 					<FeatureArticle articles={this.state.articlesList} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 function NavListItems(props){
 	return(
-		<li className="menuList--item"><a href="#">{props.linkText}</a></li>
+		<li className="menuList-item"><a href="#">{props.linkText}</a></li>
 		);
 }
 
