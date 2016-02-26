@@ -411,7 +411,6 @@ var _booksListitem2 = _interopRequireDefault(_booksListitem);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function FeatureBooks(props) {
-	console.log(props);
 	var booksList = props.books.map(function (val, i) {
 		return _react2.default.createElement(_booksListitem2.default, { key: i, imgSrc: val.bookImage, bookAuthor: val.bookAuthor.first + ' ' + val.bookAuthor.last, bookTitle: val.bookTitle });
 	});
